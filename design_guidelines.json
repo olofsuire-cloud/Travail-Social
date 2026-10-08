@@ -1,0 +1,159 @@
+{
+  "project_name": "Makandal - Programme de Travail Social",
+  "language": "fr",
+  "app_type": "hybrid_fullstack (Educational LMS)",
+  "theme_strategy": {
+    "default_mode": "light",
+    "toggle_supported": true,
+    "aesthetic": "Academic Warmth & Human-Centered Precision (Bleu ciel, Ocre, Sauge, Acier)",
+    "description": "Modern university LMS for Social Work in French. Blends academic authority (scholarly serifs, clean structural grids) with warm human-centered tones (ochre accent, sage badges, soft linen background)."
+  },
+  "typography": {
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap",
+    "font_family_heading": "'Cormorant Garamond', 'Georgia', serif",
+    "font_family_sans": "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif",
+    "font_family_mono": "'JetBrains Mono', monospace",
+    "hierarchy": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight leading-tight",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold tracking-tight text-foreground",
+      "h3_card": "text-xl sm:text-2xl font-sans font-semibold text-foreground",
+      "subhead_label": "text-xs uppercase tracking-[0.18em] font-sans font-bold text-accent-ochre",
+      "body_text": "text-base font-sans leading-relaxed text-muted-foreground",
+      "caption_mono": "text-xs font-mono tracking-wide text-muted-foreground"
+    }
+  },
+  "colors": {
+    "light_mode": {
+      "background": "#FDFBF7",
+      "background_paper": "#FAF6EF",
+      "foreground": "#1E293B",
+      "card": "#FFFFFF",
+      "card_foreground": "#0F172A",
+      "popover": "#FFFFFF",
+      "popover_foreground": "#0F172A",
+      "primary": "#0284C7",
+      "primary_hover": "#0369A1",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#F1F5F9",
+      "secondary_foreground": "#0F172A",
+      "accent_ochre": "#D97706",
+      "accent_ochre_light": "#FEF3C7",
+      "accent_sage": "#059669",
+      "accent_sage_light": "#D1FAE5",
+      "accent_coral": "#E11D48",
+      "accent_coral_light": "#FFE4E6",
+      "muted": "#F1F5F9",
+      "muted_foreground": "#64748B",
+      "border": "#E2E8F0",
+      "input": "#E2E8F0",
+      "ring": "#0284C7"
+    },
+    "dark_mode": {
+      "background": "#0B1120",
+      "background_paper": "#111827",
+      "foreground": "#F8FAFC",
+      "card": "#1E293B",
+      "card_foreground": "#F8FAFC",
+      "popover": "#1E293B",
+      "popover_foreground": "#F8FAFC",
+      "primary": "#38BDF8",
+      "primary_hover": "#0284C7",
+      "primary_foreground": "#0F172A",
+      "secondary": "#1E293B",
+      "secondary_foreground": "#F8FAFC",
+      "accent_ochre": "#F59E0B",
+      "accent_ochre_light": "#451A03",
+      "accent_sage": "#10B981",
+      "accent_sage_light": "#064E3B",
+      "accent_coral": "#FB7185",
+      "accent_coral_light": "#4C0519",
+      "muted": "#1E293B",
+      "muted_foreground": "#94A3B8",
+      "border": "#334155",
+      "input": "#334155",
+      "ring": "#38BDF8"
+    },
+    "program_axes_colors": {
+      "cours_de_base": { "bg": "bg-sky-500/10 dark:bg-sky-500/20", "text": "text-sky-700 dark:text-sky-300", "border": "border-sky-300 dark:border-sky-800" },
+      "methodologie": { "bg": "bg-amber-500/10 dark:bg-amber-500/20", "text": "text-amber-800 dark:text-amber-300", "border": "border-amber-300 dark:border-amber-800" },
+      "justice_sociale": { "bg": "bg-emerald-500/10 dark:bg-emerald-500/20", "text": "text-emerald-800 dark:text-emerald-300", "border": "border-emerald-300 dark:border-emerald-800" },
+      "intervention_sociale": { "bg": "bg-indigo-500/10 dark:bg-indigo-500/20", "text": "text-indigo-800 dark:text-indigo-300", "border": "border-indigo-300 dark:border-indigo-800" },
+      "protection_sociale": { "bg": "bg-rose-500/10 dark:bg-rose-500/20", "text": "text-rose-800 dark:text-rose-300", "border": "border-rose-300 dark:border-rose-800" }
+    }
+  },
+  "spacing_and_layout": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "generous_padding": "py-12 sm:py-16 lg:py-24",
+    "card_padding": "p-6 sm:p-8",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8",
+    "sidebar_dashboard_layout": "grid grid-cols-1 lg:grid-cols-12 gap-8"
+  },
+  "key_components": {
+    "navigation_header": {
+      "style": "Sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border shadow-xs",
+      "elements": [
+        "Makandal Social Work Crest / Logo",
+        "Program Year Filter (Année 1 à 4)",
+        "Role Switcher / Simulated User Login (Admin, Enseignant, Étudiant)",
+        "Dark/Light Mode Toggle Button",
+        "Search bar for courses"
+      ]
+    },
+    "hero_landing": {
+      "style": "Relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-sky-950 via-slate-900 to-amber-950 text-white p-8 sm:p-12 lg:p-16 my-6",
+      "features": [
+        "Eyebrow badge: 'FACULTÉ DES SCIENCES HUMAINES & SOCIALES'",
+        "Headline: 'Formation Universitaire en Travail Social'",
+        "Interactive Stats: '4 Années d'Études', '5 Axes d'Intervention', 'Stage Pratique Inclus'",
+        "Quick Action Buttons: 'Explorer le Programme' & 'Accès Portail LMS'"
+      ]
+    },
+    "program_catalog": {
+      "tabs": ["Première Année", "Deuxième Année", "Troisième Année", "Quatrième Année"],
+      "axis_pills": ["Tous les axes", "Cours de base", "Méthodologie", "Justice sociale", "Intervention sociale", "Protection sociale"],
+      "card_style": "Group relative rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-primary/50"
+    },
+    "course_detail": {
+      "accordions": "Weekly sessions (Séances 1 à 12) with topics, PDF slides download, embedded video lecture (YouTube/Vimeo mockup), quiz card, assignment submission form",
+      "progress_bar": "Interactive checkbox tracking completion percentage for students",
+      "discussion_forum": "Accordion/Tab with student comments, questions to teacher, teacher answers badge"
+    },
+    "admin_teacher_dashboard": {
+      "stats_row": "Cards showing total enrolled students, active courses, pending assignments to grade",
+      "content_editor": "Drawer/Modal to add new séance, edit course objectives, attach PDFs, add quiz questions",
+      "user_management": "Searchable user table with filters (Rôle: Enseignant / Étudiant / Adm), action dropdowns (Assigner cours, Modifier, Suspendre)"
+    }
+  },
+  "image_urls": {
+    "hero_background": "https://images.unsplash.com/photo-1758270704349-1ad411aa1281?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHw0fHx1bml2ZXJzaXR5JTIwc29jaWFsJTIwd29yayUyMHN0dWRlbnQlMjBzdHVkeSUyMGdyb3VwJTIwcHJvZmVzc29yJTIwY2FtcHVzfGVufDB8fHx8MTc5MTQyNTA4NXww&ixlib=rb-4.1.0&q=85",
+    "lecture_hall": "https://images.unsplash.com/photo-1758270705087-76e81a5117bd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHwyfHx1bml2ZXJzaXR5JTIwc29jaWFsJTIwd29yayUyMHN0dWRlbnQlMjBzdHVkeSUyMGdyb3VwJTIwcHJvZmVzc29yJTIwY2FtcHVzfGVufDB8fHx8MTc5MTQyNTA4NXww&ixlib=rb-4.1.0&q=85",
+    "social_work_group": "https://images.unsplash.com/photo-1573878587306-c6723c815090?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHwyfHxjb21tdW5pdHklMjBzb2NpYWwlMjB3b3JrJTIwaGVscGluZyUyMHBlb3BsZSUyMGhlYWx0aGNhcmUlMjBkaXNjdXNzaW9uJTIwZ3JvdXB8ZW58MHx8fHwxNzkxNDI1MDkzfDA&ixlib=rb-4.1.0&q=85",
+    "community_support": "https://images.unsplash.com/photo-1680759291088-d3e935226178?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzV8MHwxfHNlYXJjaHwzfHxjb21tdW5pdHklMjBzb2NpYWwlMjB3b3JrJTIwaGVscGluZyUyMHBlb3BsZSUyMGhlYWx0aGNhcmUlMjBkaXNjdXNzaW9uJTIwZ3JvdXB8ZW58MHx8fHwxNzkxNDI1MDkzfDA&ixlib=rb-4.1.0&q=85",
+    "professors": [
+      {
+        "name": "Prof. Jean-Baptiste Duvivier",
+        "role": "Responsable Académique & Enseignant Justice Sociale",
+        "url": "https://images.unsplash.com/photo-1758685848404-5b2bf607b38d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHw0fHxkaXZlcnNlJTIwc3R1ZGVudCUyMHBvcnRyYWl0JTIwdGVhY2hlciUyMHByb2Zlc3NvciUyMGF2YXRhciUyMGZhY2V8ZW58MHx8fHwxNzkxNDI1MDkzfDA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "name": "Dr. Marie-Claire Augustin",
+        "role": "Enseignante Méthodologie d'Intervention",
+        "url": "https://images.unsplash.com/photo-1758685847967-c598c3b176b0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwzfHxkaXZlcnNlJTIwc3R1ZGVudCUyMHBvcnRyYWl0JTIwdGVhY2hlciUyMHByb2Zlc3NvciUyMGF2YXRhciUyMGZhY2V8ZW58MHx8fHwxNzkxNDI1MDkzfDA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "name": "Prof. Emmanuel Alexis",
+        "role": "Enseignant Protection & Économie Sociale",
+        "url": "https://images.unsplash.com/photo-1758685734503-58a8accc24e8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwyfHxkaXZlcnNlJTIwc3R1ZGVudCUyMHBvcnRyYWl0JTIwdGVhY2hlciUyMHByb2Zlc3NvciUyMGF2YXRhciUyMGZhY2V8ZW58MHx8fHwxNzkxNDI1MDkzfDA&ixlib=rb-4.1.0&q=85"
+      }
+    ]
+  },
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "All interactive elements (buttons, inputs, links, tabs, accordions, modals, search bars, theme toggles, user rows) MUST include `data-testid` attributes in kebab-case format.",
+    "Do NOT center align the app container. Maintain left-aligned editorial hierarchy.",
+    "Use French language throughout the entire user interface, labels, buttons, notifications, and course mock data.",
+    "Ensure dark mode is fully functional using Tailwind `.dark` class toggle on root container / document element.",
+    "Always set explicit hover text color on buttons and interactive items to avoid unreadable contrast (e.g. `hover:bg-primary hover:text-primary-foreground`).",
+    "Use Lucide-react or Phosphor Icons for rich academic and LMS action icons (BookOpen, GraduationCap, ShieldCheck, Users, FileText, CheckCircle2, PlayCircle, MessageSquare, Plus, Trash2, Edit).",
+    "Components must use JavaScript `.js` or `.jsx` file extension as configured in this project."
+  ]
+}
