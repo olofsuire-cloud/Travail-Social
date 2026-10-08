@@ -25,7 +25,7 @@ export default function CourseDetail() {
     api.get(`/courses/${encodeURIComponent(code)}`).then((r) => setCourse(r.data)).catch(() => toast.error("Cours introuvable"));
     api.get(`/courses/${encodeURIComponent(code)}/progress`).then((r) => setCompleted(r.data.completed)).catch(() => {});
   };
-  useEffect(load, [code]);
+  useEffect(() => { load(); }, [code]);
 
   const toggleSeance = async (num, checked) => {
     setCompleted((prev) => checked ? [...prev, num] : prev.filter((n) => n !== num));
@@ -213,7 +213,7 @@ function DevoirPanel({ course, code, user, canEdit, isStudent }) {
   const [subs, setSubs] = useState([]);
   const [text, setText] = useState("");
   const load = () => api.get(`/courses/${encodeURIComponent(code)}/submissions`).then((r) => setSubs(r.data)).catch(() => {});
-  useEffect(load, [code]);
+  useEffect(() => { load(); }, [code]);
 
   const submit = async () => {
     if (!text.trim()) return;
@@ -275,7 +275,7 @@ function ForumPanel({ code }) {
   const [posts, setPosts] = useState([]);
   const [text, setText] = useState("");
   const load = () => api.get(`/courses/${encodeURIComponent(code)}/forum`).then((r) => setPosts(r.data)).catch(() => {});
-  useEffect(load, [code]);
+  useEffect(() => { load(); }, [code]);
   const post = async () => {
     if (!text.trim()) return;
     try { await api.post(`/courses/${encodeURIComponent(code)}/forum`, { text }); setText(""); load(); }

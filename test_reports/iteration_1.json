@@ -1,0 +1,41 @@
+{
+  "summary": "Full e2e testing of Makandal Travail Social platform (backend + frontend). 20/20 pytest backend tests pass. All critical UI flows verified: admin login, 47 courses visible, admin console (create/edit/assign roles with correct Enseignant/Étudiant), teacher sees only assigned courses with edit button on assigned course and NO edit button on non-assigned course, student checkboxes/submission/forum/theme toggle (persists), unauth redirects, non-admin redirect from /admin, admin can grade. Found & fixed 1 critical React 19 runtime bug in CourseDetail.jsx (useEffect returning Promise causing 'destroy is not a function' crash on tab switch).",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "AdminDashboard header", "issues": ["No visible impact — note that dropdown labels 'Étudiant/Étudiants' are translated as expected"]}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_backend.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "No functional action items. Verify the useEffect fix in CourseDetail.jsx (now wraps load() in arrow function so hook returns undefined). Consider auditing any other useEffect(fn, deps) where fn returns a Promise across the codebase.",
+    "Course documents are placeholder links (#DOCUMENT-URL-A-DEFINIR) as stated by the author — not a bug.",
+    "Note: seance checkbox data-testid uses zero-padded s.num (e.g. 'seance-check-01'), not '1'. Documentation/testIDs list in agent_to_agent_context_note referenced 'seance-check-{num}' which is correct; just a reminder for next tester."
+  ],
+  "critical_code_review_comments": [
+    "FIXED: CourseDetail.jsx used `useEffect(load, [code])` (3 occurrences in CourseDetail/DevoirPanel/ForumPanel) where `load` returned a Promise from axios .then chain. In React 19 this triggers runtime error 'destroy is not a function' (the Promise is interpreted as cleanup fn). Changed to `useEffect(() => { load(); }, [code])`. This caused Forum tab (and progress reload) to crash the SPA.",
+    "Security: /api/program is public (no auth) — low risk; mostly metadata. Could be gated behind auth to be consistent.",
+    "Admin console `UserDialog` role Select is Radix shadcn with data-testid on trigger only; options have no data-testid making automated role selection brittle. Suggest adding data-testid='role-option-enseignant' etc.",
+    "`DevoirPanel.grade` uses native `window.prompt()` — works but is poor UX; replace with a modal + inputs.",
+    "Minor: `clean_course` removes `_id` but `get_submissions` relies on manual pop — consistent helper would reduce risk."
+  ],
+  "updated_files": [
+    "/app/frontend/src/pages/CourseDetail.jsx",
+    "/app/backend/tests/test_backend.py"
+  ],
+  "success_rate": {"backend": "100%", "frontend": "100% (after useEffect fix)"},
+  "test_credentials": "Admin: olofsuire@gmail.com / Makandal2026!. Seeded teacher: prof@test.com / prof123. Created during tests: ui_t_1791425953@test.com (enseignant, SW10) and ui_s_1791425953@test.com (etudiant, SW10) both password=pass1234.",
+  "seed_data_creation": "Created 1 teacher + 1 student via admin UI assigned to SW10; also pytest creates/cleans TEST_ prefixed users per run.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All flows verified end-to-end. Pytest suite /app/backend/tests/test_backend.py has 20 tests covering auth/courses/admin/RBAC/progress/forum/submissions/grading. Use `pytest /app/backend/tests/test_backend.py -v -o addopts=''` (xdist config in /app/backend/pytest.ini uses loadscope causing session-fixture duplication; serial run works). For UI: Radix Select for role requires clicking trigger then [role=option]:has-text('Enseignant'). Logout testid is `nav-logout` (not `logout-btn`). Seance checkboxes use zero-padded nums ('01' not '1').",
+  "rca of the issue": "Issue: Opening a course and switching to Forum/Devoir tab, or submitting a devoir, crashed the SPA with runtime error 'destroy is not a function' from react-dom-client. Repro: login as any user → navigate to /cours/SW10 → click Forum tab. RCA: `useEffect(load, [code])` was passed the `load` function directly, but `load` returns `api.get(...).then(...)` which is a Promise. React 19 strictly expects the effect to return either `undefined` or a cleanup function; it tries to invoke `.destroy()` or treat the returned value as a cleanup, causing the crash on re-render / tab switch. Mitigation: wrap in arrow function so the effect returns undefined: `useEffect(() => { load(); }, [code])`. Applied to 3 call sites in /app/frontend/src/pages/CourseDetail.jsx."
+}
